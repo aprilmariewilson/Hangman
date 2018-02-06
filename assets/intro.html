@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="hangman.css">
 
-<script type="text/javascript" src="script.js"></script>
 
 
 </head>
@@ -37,10 +36,10 @@
 		
 						<ul class="nav navbar-nav navbar-right">
 							<li>
-								<class="gamescore" id="gameScore">Games Won: 0</class>
+								<class="gamescore" id="gameScore"><h3>Games Won: 0</h3></class>
 							</li>
 							<li>
-								<class="gamesplayed" id="gamesPlayed">Games Played: 0</class>
+								<class="gamesplayed" id="gamesPlayed"><h3>Games Played: 0</h3></class>
 							</li>
 						</ul>
 					</div>
@@ -48,29 +47,29 @@
 				</div>
 				<!-- /.container-fluid -->
 			</nav>
-			<div class="wrapper">
-					
-					 <p>Use the alphabet below to guess the word, or click hint to get a clue. </p>
-			 </div>
+		
 			 <div class="wrapper">
-					 <div id="buttons">
-					 </div>  
 					 <p id="catagoryName"></p>
+					 <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas><br>
 					 <div id="hold">
 					 </div>
 					 <p id="mylives"></p>
 					 <p id="clue">Clue -</p>  
-						<canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
+						<div id="display"></div>
+						<div id="buttons"><myButtons></myButtons></div>
+
 					 <div class="container">
-						 <button id="hint">Hint</button>
+						<button id="hint">Hint</button>
 						 <button id="reset">Play again</button>
 					 </div>
+					 <p>Use the alphabet above to guess the word, or click hint to get a clue. </p>
 			 </div>
 			 
 				<footer>
 					<p>©Copywright 2018 April Wilson</p>
 				</footer>
 			
-	
+				<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+				<script type="text/javascript" src="script.js"></script>
 </body>
 </html>

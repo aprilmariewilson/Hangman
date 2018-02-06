@@ -1,36 +1,40 @@
-*{
-	box-sizing: border-box;
-	margin: auto;
-}
-
-
 
 body {
-  background:white;
+  background: #777777;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-  color:white;
+  color: white;
   height:100%;
   text-align:center;
   font-size:18px;
 }
 
+nav{
+	border: grey solid 3px;
+	padding-bottom: 7px;
+	text-align: justify;
+
+}
+
+
 .wrappper{
+ 
   width:100%;
-  margin:0 auto;
+	margin:0 auto;
 }
 
 
 canvas{
-  color:white;
-  border: white dashed 2px;
-  padding:15px;
+  background: url(http://3.bp.blogspot.com/-iL3VgGJUVR4/T-CPl8vmTFI/AAAAAAAAAMM/zv2ZKuxbhYc/s700/OLD+SCHOOL+TV.jpg) no-repeat;
+	width: 700px;
+	height:500px;
 }
 
 h1, h2, h3 {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 100;
 	text-transform: uppercase;
-   margin:5px 0;
+	 margin:5px;
+	 color: #777777;
 }
 
 h1 {
@@ -42,27 +46,33 @@ h2 {
 }
 
 p{
-  font-size: 1.6em;
+	font-size: 1.6em;
+	padding: 2px;
 }
 
-#alphabet {
+#letters {
+ 
   margin:15px auto;
   padding:0;
-  max-width:900px;
+	max-width:900px;
+	
 }
 
-#alphabet li {
+#letters li {
   float:left;
   margin: 0 10px 10px 0;
   list-style:none;
   width:35px;
   height:30px;
   padding-top:10px;
-  background:white;
-  color: black;
+  background: white;
+  color: #0e0505;
   cursor:pointer;
-  border: solid 1px black;
-
+	-moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px; 
+  -khtml-border-radius:5px; 
+  border:solid 1px  white;
 }
 
 #my-word {
@@ -81,6 +91,21 @@ p{
   font-size:1.6em;
 }
 
+a:hover {
+	background: #777777;
+	border:solid 1px white;
+	color: white;
+}
+
+.active {
+	opacity:0.4;
+  filter:alpha(opacity=40);
+	cursor:default;
+	content: "";
+	display: table;
+	clear: both;
+}
+
 #mylives{
   font-size:1.6em;
   text-align:center;
@@ -88,9 +113,13 @@ p{
 }
 
 button{
-  background:white;
-  color:black;
-  border: solid 1px black;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+  -khtml-border-radius: 5px;
+  background: #777777;
+  color: white;
+  border:solid 1px  white;
   text-decoration:none;
   cursor:pointer;
   font-size:1.2em;
@@ -98,18 +127,20 @@ button{
   width:180px;
   margin: 10px;
   outline: none;
-  
-   
+ 
+}
+footer{
+
 }
 
 @media (max-width: 767px) {
-  #alphabet {
+  #letters {
   padding:0 0 0 15px;
 }
   }
 
   @media (max-width: 480px) {
-  #alphabet {
+  #letters {
   padding:0 0 0 25px;
 }
   }

@@ -1,17 +1,19 @@
-window.onload = function () {
+$(document).ready(function () {
 
 
-var alphabet = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M']
+var letters = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M']
 
 var categories;         // Array of topics
 var chosenCategory;     // Selected catagory
 var getHint ;          // Word getHint
 var word ;              // Selected word
-var guess ;             // Geuss
+var guess ;             // guess
 var guesses = [ ];      // Stored guesses
 var lives ;             // Lives
 var counter ;           // Count correct guesses
 var space;              // Number of spaces in word '-'
+var gamesPlayed;        //Number of games played
+var gameScore;          //Number of games won
 
 // Get elements
 var showLives = document.getElementById("mylives");
@@ -21,21 +23,21 @@ var showClue = document.getElementById("clue");
 
 
 
-// create alphabet ul
+// create letters ul
 var buttons = function () {
 	myButtons = document.getElementById('buttons');
 	letters = document.createElement('ul');
 
-	for (var i = 0; i < alphabet.length; i++) {
+	for (var i = 0; i < letters.length; i++) {
 
-		letters.id = 'alphabet';
+		letters.id = 'letters';
 		list = document.createElement('li');
 		list.id = 'letter';
+		var letterBtn = $('<button>')
 		letterBtn.addClass("letter-button letter letter-button-color");
-		letterBtn.attr("data-letter", alphabet[i]);
+		letterBtn.attr("data-letter", letters[i]);
 		letterBtn.text(letters[i]);
-
-		list.innerHTML = alphabet[i];
+		list.innerHTML = letters[i];
 		check();
 		myButtons.appendChild(letterBtn);
 		letters.appendChild(list);
@@ -49,11 +51,11 @@ var buttons = function () {
   // Select Catagory
   var selectCat = function () {
     if (chosenCategory === categories[0]) {
-      catagoryName.innerHTML = "The Chosen Category Is Premier League Football Teams";
+      catagoryName.innerHTML = "The Chosen Category Is TV Shows";
     } else if (chosenCategory === categories[1]) {
-      catagoryName.innerHTML = "The Chosen Category Is Films";
+      catagoryName.innerHTML = "The Chosen Category Is Action Films";
     } else if (chosenCategory === categories[2]) {
-      catagoryName.innerHTML = "The Chosen Category Is Cities";
+      catagoryName.innerHTML = "The Chosen Category Is Animated Films";
     }
   }
 
@@ -73,7 +75,7 @@ var buttons = function () {
         guess.innerHTML = "_";
       }
 
-      guesses.push(guess);
+			guesses.push(guess);
       wordHolder.appendChild(correct);
       correct.appendChild(guess);
 		}
@@ -92,17 +94,23 @@ var buttons = function () {
 	}
   }
   
-  // Show lives
+	// Show lives
+
+	var gamesPlayed = 0;
+	var gameScore = 0;
    comments = function () {
     showLives.innerHTML = "You have " + lives + " lives";
     if (lives < 1) {
-			showLives.innerHTML = "Game Over"
-			;
+			showLives.innerHTML = "Game Over";
+			gamesPlayed = gamesPlayed++;
     }
     for (var i = 0; i < guesses.length; i++) {
       if (counter + space === guesses.length) {
-        showLives.innerHTML = "You Win!";
-			}
+				showLives.innerHTML = "You Win!";
+				gamesPlayed = (gamesPlayed++);
+				gameScore = (gameScore++);
+				
+      }
     }
   }
 
@@ -201,66 +209,63 @@ var buttons = function () {
   }
   
     
-  // Play
-  play = function () {
-    categories = [
-        ["everton", "liverpool", "swansea", "chelsea", "hull", "manchester-city", "newcastle-united"],
-        ["alien", "dirty-harry", "gladiator", "finding-nemo", "jaws"],
-        ["manchester", "milan", "madrid", "amsterdam", "prague"]
-    ];
+	// Play
+	play = function () {
+  categories = [
+		['I LOVE LUCY', 'FRIENDS', 'SEINFIELD','CHEERS', 'MASH', 'SEX AND THE CITY', 'DEXTER', 'JUSTIFIED','THIS IS US', 'PUNKY BREWSTER', 'LOONEY TUNES', 'MELROSE PLACE', 'GOLDEN GIRLS', 'LAW AND ORDER', 'WHOS LINE IS IT ANYWAY', 'BEWITCHED', 'JEOPARDY', 'WHEEL OF FORTUNE', 'WHO WANTS TO BE A MILLIONAIRE'],
+		['MAD MAX FURY ROAD', 'DUNKIRK', 'METROPOLIS', 'WONDER WOMAN', 'KING KONG', 'STAR WARS','LOGAN','SEVEN SAMURAI', 'BABY DRIVER', 'THE TREASURE OF THE SIERRA MADRE','THE DARK KNIGHT', 'WAR FOR THE PLANET OF THE APES', 'SPIDERMAN', 'HARRY POTTER AND THE DEATHLY HALLOWS', 'CAPTIAN AMERICA CIVIL WAR','MISSION IMPOSSIBLE', 'IRON MAN', 'SKYFALL'],
+			['SNOW WHITE','CINDERELLA','MULAN','FROZEN', 'FINDING NEMO', 'THE LITTLE MERMAID', 'UP','TOY STORY', 'THE SECRET OF NIMH','ALL DOGS GO TO HEAVEN', 'LAND BEFORE TIME', 'AN AMERICAN TAIL', 'PETER RABBIT','THE LION KING', 'BRAVE','COCO',]
+	];
 
-    chosenCategory = categories[Math.floor(Math.random() * categories.length)];
-    word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
-    word = word.replace(/\s/g, "-");
-    console.log(word);
-    buttons();
+	chosenCategory = categories[Math.floor(Math.random() * categories.length)];
+	word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
+	word = word.replace(/\s/g, "-");
+	console.log(word);
+	buttons();
 
-    guesses = [ ];
-    lives = 10;
-    counter = 0;
-    space = 0;
-    result();
-    comments();
-    selectCat();
-    canvas();
-  }
-
-  play();
-  
-  // Hint
-
-    hint.onclick = function() {
-
-      hints = [
-        ["Based in Mersyside", "Based in Mersyside", "First Welsh team to reach the Premier Leauge", "Owned by A russian Billionaire", "Once managed by Phil Brown", "2013 FA Cup runners up", "Gazza's first club"],
-        ["Science-Fiction horror film", "1971 American action film", "Historical drama", "Anamated Fish", "Giant great white shark"],
-        ["Northern city in the UK", "Home of AC and Inter", "Spanish capital", "Netherlands capital", "Czech Republic capital"]
-    ];
-
-    var catagoryIndex = categories.indexOf(chosenCategory);
-    var hintIndex = chosenCategory.indexOf(word);
-    showClue.innerHTML = "Clue: - " +  hints [catagoryIndex][hintIndex];
-  };
-
-   // Reset
-
-  document.getElementById('reset').onclick = function() {
-    correct.parentNode.removeChild(correct);
-    letters.parentNode.removeChild(letters);
-    showClue.innerHTML = "";
-    context.clearRect(0, 0, 400, 400);
-    play();
-  }
+	guesses = [ ];
+	lives = 10;
+	counter = 0;
+	space = 0;
+	result();
+	comments();
+	selectCat();
+	canvas();
 }
+
+play();
+
+// Hint
+
+	hint.onclick = function() {
+
+		hints = [
+			['You got some splaining to do','the Coffee shop','Soup Nazi','Where everybody knows your name','WWII show','The girl who will live in her shoes','A cut above the rest','Set in Harlan County','Multi-generational tear jerker','Mismatched outfits and pig tails','Saturday mornings as a kid','Prime time soap opera drama','Senior living','Crime Drama','Improv','Housewife in the 60s','What is...','Hangman on TV','Id like to phone a friend'],
+			['Wasteland Scavengers','WWII Rescue mission','A futuristic city divided','Marvel Character','Empire State Building','A galactic war','Actor is saying goodbye to his character','Look into Japenese Warfare','Direxted by Edgar Wright','One of the first films to be filmed outside of the USA','DC Comics','Cesar fights for world domination','With power comes great responsibility','The boy who lived','Super soldier','Turns out it is possible','not gold, not silver','Shaken not stirred'],
+			['Fruit is bad','What am I going to wear','A girl saves the day','Wanna build a snowman?','Im lost','Gadgets and gizmos','Balloons','Cowboy vs spaceman','Mom trying to save her son','The hard life of strays','dinosaurs','Imigrating to America','Trying to get along with the new neighbors','Finding out who you were meant to be','Crazy Haired girl','Day of the Dead']
+		];
+			
+		var catagoryIndex = categories.indexOf(chosenCategory);
+		var hintIndex = chosenCategory.indexOf(word);
+		showClue.innerHTML = "Clue: - " +  hints [catagoryIndex][hintIndex];
+	};
+
+ // Reset
+
+	document.getElementById('reset').onclick = function() {
+		correct.parentNode.removeChild(correct);
+		letters.parentNode.removeChild(letters);
+		showClue.innerHTML = "";
+		context.clearRect(0, 0, 400, 400);
+		play();
+	}
+});
+
+
+
+
 
 
 
 	
 
-var shows = ['I LOVE LUCY', 'FRIENDS', 'SEINFIELD','CHEERS', 'MASH', 'SEX AND THE CITY', 'DEXTER', 'JUSTIFIED','THIS IS US', 'PUNKY BREWSTER', 'LOONEY TUNES', 'MELROSE PLACE', 'GOLDEN GIRLS', 'LAW AND ORDER', 'WHOS LINE IS IT ANYWAY', 'BEWITCHED', 'JEOPARDY', 'WHEEL OF FORTUNE', 'WHO WANTS TO BE A MILLIONAIRE']
-
-var action = ['MAD MAX FURY ROAD', 'DUNKIRK', 'METROPOLIS', 'COCO', 'WONDER WOMAN', 'KING KONG', 'STAR WARS', 'LOGAN', 'SEVEN SAMURAI', 'BABY DRIVER', 'THE TREASURE OF THE SIERRA MADRE','THE DARK KNIGHT', 'WAR FOR THE PLANET OF THE APES', 'SPIDERMAN', 'HARRY POTTER AND THE DEATHLY HALLOWS', 'CAPTIAN AMERICA CIVIL WAR','MISSION IMPOSSIBLE', 'IRON MAN', 'SKYFALL']
-
-function chooseGenre () {
-
-}
