@@ -29,11 +29,16 @@ var buttons = function () {
 	letters = document.createElement('ul');
 
 	for (var i = 0; i < letters.length; i++) {
+		var buttons = document.createElement('input');
+		buttons.addClass('data-letter', letters[i]);
+		buttons.text(letters[i]);
+		list.innerHTML = letters[i];
+
 
 		letters.id = 'letters';
 		list = document.createElement('li');
 		list.id = 'letter';
-		var letterBtn = $('<button>')
+		
 		letterBtn.addClass("letter-button letter letter-button-color");
 		letterBtn.attr("data-letter", letters[i]);
 		letterBtn.text(letters[i]);
@@ -46,7 +51,6 @@ var buttons = function () {
 		$(this).addClass('grey');
 });
 }
-
 
   // Select Catagory
   var selectCat = function () {
@@ -240,7 +244,7 @@ play();
 	hint.onclick = function() {
 
 		hints = [
-			['You got some splaining to do','the Coffee shop','Soup Nazi','Where everybody knows your name','WWII show','The girl who will live in her shoes','A cut above the rest','Set in Harlan County','Multi-generational tear jerker','Mismatched outfits and pig tails','Saturday mornings as a kid','Prime time soap opera drama','Senior living','Crime Drama','Improv','Housewife in the 60s','What is...','Hangman on TV','Id like to phone a friend'],
+			['You got some splaining to do', 'the Coffee shop', 'Soup Nazi', 'Where everybody knows your name', 'WWII show', 'The girl who will live in her shoes', 'A cut above the rest', 'Set in Harlan County', 'Multi-generational tear jerker', 'Mismatched outfits and pig tails', 'Saturday mornings as a kid','Prime time soap opera drama', 'Senior living', 'Crime Drama', 'Improv', 'Housewife in the 60s','What is...','Hangman on TV', 'Id like to phone a friend'],
 			['Wasteland Scavengers','WWII Rescue mission','A futuristic city divided','Marvel Character','Empire State Building','A galactic war','Actor is saying goodbye to his character','Look into Japenese Warfare','Direxted by Edgar Wright','One of the first films to be filmed outside of the USA','DC Comics','Cesar fights for world domination','With power comes great responsibility','The boy who lived','Super soldier','Turns out it is possible','not gold, not silver','Shaken not stirred'],
 			['Fruit is bad','What am I going to wear','A girl saves the day','Wanna build a snowman?','Im lost','Gadgets and gizmos','Balloons','Cowboy vs spaceman','Mom trying to save her son','The hard life of strays','dinosaurs','Imigrating to America','Trying to get along with the new neighbors','Finding out who you were meant to be','Crazy Haired girl','Day of the Dead']
 		];
