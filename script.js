@@ -29,27 +29,21 @@ var buttons = function () {
 	letters = document.createElement('ul');
 
 	for (var i = 0; i < letters.length; i++) {
-		var buttons = document.createElement('input');
-		buttons.addClass('data-letter', letters[i]);
-		buttons.text(letters[i]);
+		letters.id = 'letters';
+		list = document.createElement('li');
+		list.id = 'letter'
 		list.innerHTML = letters[i];
 
 
 		letters.id = 'letters';
 		list = document.createElement('li');
 		list.id = 'letter';
-		
-		letterBtn.addClass("letter-button letter letter-button-color");
-		letterBtn.attr("data-letter", letters[i]);
-		letterBtn.text(letters[i]);
-		list.innerHTML = letters[i];
 		check();
 		myButtons.appendChild(letterBtn);
 		letters.appendChild(list);
+	
 	}
-	$('input[type="buttons"]').click(function(){
-		$(this).addClass('grey');
-});
+
 }
 
   // Select Catagory
