@@ -52,7 +52,7 @@ p{
 
 #letters {
  
-  margin:15px auto;
+  margin:10px auto;
   padding:0;
 	max-width:900px;
 	
@@ -101,9 +101,9 @@ a:hover {
 	opacity:0.4;
   filter:alpha(opacity=40);
 	cursor:default;
-	content: "";
-	display: table;
-	clear: both;
+	/* content: ""; */
+	/* display: table; */
+	/* clear: both; */
 }
 
 #mylives{
@@ -123,13 +123,14 @@ button{
   text-decoration:none;
   cursor:pointer;
   font-size:1.2em;
-  padding:18px 10px;
-  width:180px;
+  padding:10px 8px;
+  width:8%;
   margin: 10px;
   outline: none;
  
 }
-footer{
+.big{
+	width: 15%;
 
 }
 
