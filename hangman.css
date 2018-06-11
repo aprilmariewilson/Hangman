@@ -10,7 +10,6 @@ body {
 
 nav{
 	border: grey solid 3px;
-	padding-bottom: 7px;
 	text-align: justify;
 
 }
@@ -28,7 +27,11 @@ canvas{
 	width: 700px;
 	height:500px;
 }
-
+.icon{
+	height: 75px;
+padding-bottom: 0;
+margin-bottom: 0;
+}
 h1, h2, h3 {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 100;
@@ -38,7 +41,7 @@ h1, h2, h3 {
 }
 
 h1 {
-	font-size: 2.6em;
+	font-size: 3.6em;
 }
 
 h2 {

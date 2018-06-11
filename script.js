@@ -208,16 +208,18 @@ $(document).ready(function () {
 
 	// Play
 	play = function () {
+		// harrypotter, thisisus,ilovelucy,
 		categories = [
-			['I LOVE LUCY', 'FRIENDS', 'SEINFIELD', 'CHEERS', 'MASH', 'SEX AND THE CITY', 'DEXTER', 'JUSTIFIED', 'THIS IS US', 'PUNKY BREWSTER', 'LOONEY TUNES', 'MELROSE PLACE', 'GOLDEN GIRLS', 'LAW AND ORDER', 'WHOS LINE IS IT ANYWAY', 'BEWITCHED', 'JEOPARDY', 'WHEEL OF FORTUNE', 'WHO WANTS TO BE A MILLIONAIRE'],
-			['MAD MAX FURY ROAD', 'DUNKIRK', 'METROPOLIS', 'WONDER WOMAN', 'KING KONG', 'STAR WARS', 'LOGAN', 'SEVEN SAMURAI', 'BABY DRIVER', 'THE TREASURE OF THE SIERRA MADRE', 'THE DARK KNIGHT', 'WAR FOR THE PLANET OF THE APES', 'SPIDERMAN', 'HARRY POTTER AND THE DEATHLY HALLOWS', 'CAPTIAN AMERICA CIVIL WAR', 'MISSION IMPOSSIBLE', 'IRON MAN', 'SKYFALL'],
-			['SNOW WHITE', 'CINDERELLA', 'MULAN', 'FROZEN', 'FINDING NEMO', 'THE LITTLE MERMAID', 'UP', 'TOY STORY', 'THE SECRET OF NIMH', 'ALL DOGS GO TO HEAVEN', 'LAND BEFORE TIME', 'AN AMERICAN TAIL', 'PETER RABBIT', 'THE LION KING', 'BRAVE', 'COCO']
+			['I-LOVE-LUCY', 'FRIENDS', 'SEINFIELD', 'CHEERS', 'MASH', 'SEX-AND-THE-CITY', 'DEXTER', 'JUSTIFIED', 'THIS-IS-US', 'PUNKY-BREWSTER', 'LOONEY-TUNES', 'MELROSE-PLACE', 'GOLDEN-GIRLS', 'LAW-AND-ORDER', 'WHOS-LINE-IS-IT-ANYWAY', 'BEWITCHED', 'JEOPARDY', 'WHEEL-OF-FORTUNE', 'WHO-WANTS-TO-BE-A-MILLIONAIRE'],
+			['MAD-MAX-FURY-ROAD', 'DUNKIRK', 'METROPOLIS', 'WONDER-WOMAN', 'KING-KONG', 'STAR-WARS', 'LOGAN', 'SEVEN-SAMURAI', 'BABY-DRIVER', 'THE-TREASURE-OF-THE-SIERRA-MADRE', 'THE-DARK-KNIGHT', 'WAR-FOR-THE-PLANET-OF-THE-APES', 'SPIDERMAN', 'HARRY-POTTER-AND-THE-DEATHLY-HALLOWS', 'CAPTIAN-AMERICA-CIVIL-WAR', 'MISSION-IMPOSSIBLE', 'IRON-MAN', 'SKYFALL'],
+			['SNOW-WHITE', 'CINDERELLA', 'MULAN', 'FROZEN', 'FINDING-NEMO', 'THE-LITTLE-MERMAID', 'UP', 'TOY-STORY', 'THE-SECRET-OF-NIMH', 'ALL-DOGS-GO-TO-HEAVEN', 'LAND-BEFORE-TIME', 'AN-AMERICAN-TAIL', 'PETER-RABBIT', 'THE-LION-KING', 'BRAVE', 'COCO']
 		];
 
 		chosenCategory = categories[Math.floor(Math.random() * categories.length)];
 		word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
-		word = word.replace(/\s/g, "-");
+		// word = word.replace(/\s/g, "-");
 		console.log(word);
+		console.log(chosenCategory.indexOf(word))
 		buttons();
 
 		guesses = [];
@@ -238,14 +240,16 @@ $(document).ready(function () {
 
 		hints = [
 			['You got some splaining to do', 'the Coffee shop', 'Soup Nazi', 'Where everybody knows your name', 'WWII show', 'The girl who will live in her shoes', 'A cut above the rest', 'Set in Harlan County', 'Multi-generational tear jerker', 'Mismatched outfits and pig tails', 'Saturday mornings as a kid', 'Prime time soap opera drama', 'Senior living', 'Crime Drama', 'Improv', 'Housewife in the 60s', 'What is...', 'Hangman on TV', 'Id like to phone a friend'],
-			['Wasteland Scavengers', 'WWII Rescue mission', 'A futuristic city divided', 'Marvel Character', 'Empire State Building', 'A galactic war', 'Actor is saying goodbye to his character', 'Look into Japenese Warfare', 'Direxted by Edgar Wright', 'One of the first films to be filmed outside of the USA', 'DC Comics', 'Cesar fights for world domination', 'With power comes great responsibility', 'The boy who lived', 'Super soldier', 'Turns out it is possible', 'not gold, not silver', 'Shaken not stirred'],
+			['Wasteland Scavengers', 'WWII Rescue mission', 'A futuristic city divided', 'Marvel Character', 'Empire State Building', 'A galactic war', 'Actor is saying goodbye to his character', 'Look into Japenese Warfare', 'Directed by Edgar Wright', 'One of the first films to be filmed outside of the USA', 'DC Comics', 'Cesar fights for world domination', 'With power comes great responsibility', 'The boy who lived', 'Super soldier', 'Turns out it is possible', 'not gold, not silver', 'Shaken not stirred'],
 			['Fruit is bad', 'What am I going to wear', 'A girl saves the day', 'Wanna build a snowman?', 'Im lost', 'Gadgets and gizmos', 'Balloons', 'Cowboy vs spaceman', 'Mom trying to save her son', 'The hard life of strays', 'dinosaurs', 'Imigrating to America', 'Trying to get along with the new neighbors', 'Finding out who you were meant to be', 'Crazy Haired girl', 'Day of the Dead']
 		];
 
 		var categoryIndex = categories.indexOf(chosenCategory);
+		console.log(categoryIndex);
 		var hintIndex = chosenCategory.indexOf(word);
+		console.log(hintIndex);
 		showClue.innerHTML = "Clue: - " + hints[categoryIndex][hintIndex];
-		console.log(hints)
+		console.log(hints);
 	};
 
 	// Reset
@@ -257,7 +261,7 @@ $(document).ready(function () {
 		context.clearRect(0, 0, 400, 400);
 		play();
 	}
-});
+}); //document load
 
 
 
