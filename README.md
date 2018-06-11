@@ -10,5 +10,5 @@ Play this movie/TV inspired version of Hangman. There are three different catego
 * JavaScript
 
 ### Authors
-* April Wilson -- [inline-style link with title](https://https://github.com/aprilmariewilson "aprilmariewilson")
+* April Wilson -- [aprilmariewilson](https://https://github.com/aprilmariewilson "aprilmariewilson")
 
