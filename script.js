@@ -209,8 +209,6 @@ $(document).ready(function () {
 		chosenCategory = categories[Math.floor(Math.random() * categories.length)];
 		word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
 		// word = word.replace(/\s/g, "-");
-		console.log(word);
-		console.log(chosenCategory.indexOf(word))
 		buttons();
 
 		guesses = [];
@@ -236,11 +234,8 @@ $(document).ready(function () {
 		];
 
 		var categoryIndex = categories.indexOf(chosenCategory);
-		console.log(categoryIndex);
 		var hintIndex = chosenCategory.indexOf(word);
-		console.log(hintIndex);
 		showClue.innerHTML = "Clue: - " + hints[categoryIndex][hintIndex];
-		console.log(hints);
 	};
 
 	// Reset Game
