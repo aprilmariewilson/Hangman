@@ -1,3 +1,4 @@
+/* CSS regardless of device size */
 
 body {
   background: #777777;
@@ -7,25 +8,10 @@ body {
   text-align:center;
   font-size:18px;
 }
-
 nav{
 	border: grey solid 3px;
 	text-align: justify;
 
-}
-
-
-.wrappper{
- 
-  width:100%;
-	margin:0 auto;
-}
-
-
-canvas{
-  background: url(http://3.bp.blogspot.com/-iL3VgGJUVR4/T-CPl8vmTFI/AAAAAAAAAMM/zv2ZKuxbhYc/s700/OLD+SCHOOL+TV.jpg) no-repeat;
-	width: 700px;
-	height:500px;
 }
 .icon{
 	height: 75px;
@@ -39,31 +25,156 @@ h1, h2, h3 {
 	 margin:5px;
 	 color: #777777;
 }
-
-h1 {
-	font-size: 3.6em;
-}
-
-h2 {
-	font-size: 1.6em;
-}
-
 p{
 	font-size: 1.6em;
 	padding: 2px;
 }
-
 #letters {
- 
   margin:10px auto;
   padding:0;
 	max-width:900px;
-	
+}
+#my-word {
+  margin: 0;
+  display: block;
+  padding: 0;
+  display:block;
 }
 
+a:hover {
+	background: #777777;
+	border:solid 1px white;
+	color: white;
+}
+.active {
+	opacity:0.4;
+  filter:alpha(opacity=40);
+	cursor:default;
+	/* content: ""; */
+	/* display: table; */
+	/* clear: both; */
+}
+#mylives{
+  font-size:1.6em;
+  text-align:center;
+  display:block;
+}
+
+/* large tablet and computer screen sizing */
+	@media only screen and (min-width: 775px){
+		#letters {
+			padding:0 0 0 15px;
+		}
+		#my-word li {
+			position: relative;
+			list-style: none;
+			margin: 0;
+			display: inline-block;
+			padding: 0 10px;
+			font-size:1.6em;
+		}
+		h2 {
+			font-size: 1.6em;
+		}
+		h1 {
+			font-size: 3.6em;
+		}
+		#letters li {
+			float:left;
+			margin: 5px;
+			list-style:none;
+			width:35px;
+			height:30px;
+			padding-top:10px;
+			background: white;
+			color: #0e0505;
+			cursor:pointer;
+			-moz-border-radius:5px;
+			-webkit-border-radius:5px;
+			border-radius:5px; 
+			-khtml-border-radius:5px; 
+			border:solid 1px  white;
+		}
+		canvas{
+			background: url(http://3.bp.blogspot.com/-iL3VgGJUVR4/T-CPl8vmTFI/AAAAAAAAAMM/zv2ZKuxbhYc/s700/OLD+SCHOOL+TV.jpg) no-repeat;
+			width: 700px;
+			height:500px;
+		}
+		button{
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			border-radius: 5px; 
+			-khtml-border-radius: 5px;
+			background: #777777;
+			color: white;
+			border:solid 1px  white;
+			text-decoration:none;
+			cursor:pointer;
+			font-size:1.2em;
+			padding:10px 8px;
+			width:8%;
+			margin: 10px;
+			outline: none;
+		}
+		.big{
+			width: 15%;
+		}
+	}
+	@media only screen and (min-width: 700px){
+
+		canvas{
+			background: url(http://3.bp.blogspot.com/-iL3VgGJUVR4/T-CPl8vmTFI/AAAAAAAAAMM/zv2ZKuxbhYc/s700/OLD+SCHOOL+TV.jpg) no-repeat;
+			width: 700px;
+			height:500px;
+		}
+.pfooter{
+	font-size: 1em;
+}
+	}
+
+/* for mobile device and tablet sizing */
+	@media only screen and (min-width: 300px) and (max-width: 774px) {
+  #letters {
+	padding:0 0 0 25px;
+	line-height: 1;
+}
+ul{
+	-webkit-padding-start: 5px;
+}
+canvas {
+	background-color: whitesmoke;	
+}
+h1 {
+	font-size: 1.6em;
+}
+/* footer {
+	display: none;
+} */
+.big{
+	width: 30%;
+}
+p {
+	font-size: 1em;
+}
+button{
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+  -khtml-border-radius: 5px;
+  background: #777777;
+  color: white;
+  border:solid 1px  white;
+  text-decoration:none;
+  cursor:pointer;
+  font-size:.8em;
+  padding:1px 12px;
+  width:5%;
+  margin: 5px;
+  outline: none;
+}
 #letters li {
   float:left;
-  margin: 0 10px 10px 0;
+  margin: 5px;
   list-style:none;
   width:35px;
   height:30px;
@@ -78,73 +189,28 @@ p{
   border:solid 1px  white;
 }
 
-#my-word {
-  margin: 0;
-  display: block;
-  padding: 0;
-  display:block;
-}
-
 #my-word li {
   position: relative;
   list-style: none;
   margin: 0;
   display: inline-block;
-  padding: 0 10px;
-  font-size:1.6em;
+  padding: 0 5px;
+  font-size:1em;
 }
-
-a:hover {
-	background: #777777;
-	border:solid 1px white;
-	color: white;
+#buttons {
+	margin: 5px;
 }
-
-.active {
-	opacity:0.4;
-  filter:alpha(opacity=40);
-	cursor:default;
-	/* content: ""; */
-	/* display: table; */
-	/* clear: both; */
+.wrapper {
+	margin: 5px;
+	width: 100%;
 }
-
-#mylives{
-  font-size:1.6em;
-  text-align:center;
-  display:block;
+#mylives {
+	font-size: 1em;
 }
-
-button{
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px; 
-  -khtml-border-radius: 5px;
-  background: #777777;
-  color: white;
-  border:solid 1px  white;
-  text-decoration:none;
-  cursor:pointer;
-  font-size:1.2em;
-  padding:10px 8px;
-  width:8%;
-  margin: 10px;
-  outline: none;
- 
+footer {
+	margin-bottom: 0;
 }
-.big{
-	width: 15%;
-
-}
-
-@media (max-width: 767px) {
-  #letters {
-  padding:0 0 0 15px;
-}
-  }
-
-  @media (max-width: 480px) {
-  #letters {
-  padding:0 0 0 25px;
+.pfooter{
+	font-size: .5em
 }
   }

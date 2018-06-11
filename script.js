@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 
-	var alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+	var alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '-']
 
 	var categories;         // Array of topics
 	var chosenCategory;     // Selected category
@@ -61,17 +61,15 @@ $(document).ready(function () {
 			correct.setAttribute('id', 'my-word');
 			guess = document.createElement('li');
 			guess.setAttribute('class', 'guess');
-			if (word[i] === "-") {
-				guess.innerHTML = "-";
-				space = 1;
-			} else {
-				guess.innerHTML = "_";
+			{
+			guess.innerHTML = "_";
 			}
 
 			guesses.push(guess);
 			wordHolder.appendChild(correct);
 			correct.appendChild(guess);
 		}
+		// set color of buttons dependent on current state
 		function setColor(btn, color) {
 			var count = 1;
 			var property = document.getElementById(btn);
@@ -83,20 +81,14 @@ $(document).ready(function () {
 				property.style.backgroundColor = "#7FFF00"
 				count = 0;
 			}
-
 		}
 	}
-
-	// games playes/won in header
-	// games = function(){
-		
-	// }
 
 	// Show lives
 	gamesPlayed = 0;
 	gameScore = 0;
 	comments = function () {
-		showLives.innerHTML = "You have " + lives + " lives";
+		showLives.innerHTML = "You have " + lives + " guesses left";
 		if (lives < 1) {
 			showLives.innerHTML = "Game Over";
 			gamesPlayed++;
@@ -208,7 +200,6 @@ $(document).ready(function () {
 
 	// Play
 	play = function () {
-		// harrypotter, thisisus,ilovelucy,
 		categories = [
 			['I-LOVE-LUCY', 'FRIENDS', 'SEINFIELD', 'CHEERS', 'MASH', 'SEX-AND-THE-CITY', 'DEXTER', 'JUSTIFIED', 'THIS-IS-US', 'PUNKY-BREWSTER', 'LOONEY-TUNES', 'MELROSE-PLACE', 'GOLDEN-GIRLS', 'LAW-AND-ORDER', 'WHOS-LINE-IS-IT-ANYWAY', 'BEWITCHED', 'JEOPARDY', 'WHEEL-OF-FORTUNE', 'WHO-WANTS-TO-BE-A-MILLIONAIRE'],
 			['MAD-MAX-FURY-ROAD', 'DUNKIRK', 'METROPOLIS', 'WONDER-WOMAN', 'KING-KONG', 'STAR-WARS', 'LOGAN', 'SEVEN-SAMURAI', 'BABY-DRIVER', 'THE-TREASURE-OF-THE-SIERRA-MADRE', 'THE-DARK-KNIGHT', 'WAR-FOR-THE-PLANET-OF-THE-APES', 'SPIDERMAN', 'HARRY-POTTER-AND-THE-DEATHLY-HALLOWS', 'CAPTIAN-AMERICA-CIVIL-WAR', 'MISSION-IMPOSSIBLE', 'IRON-MAN', 'SKYFALL'],
@@ -252,7 +243,7 @@ $(document).ready(function () {
 		console.log(hints);
 	};
 
-	// Reset
+	// Reset Game
 
 	document.getElementById('reset').onclick = function () {
 		correct.parentNode.removeChild(correct);
